@@ -25,6 +25,8 @@ public class PrimeFactors {
         long x = 2100078578;
         long y = 2100078577;
 
+        System.out.println(primeFactors.primeFactors(x));
         System.out.println(primeFactors.primeFactors(y));
+
     }
 }
