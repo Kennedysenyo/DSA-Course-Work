@@ -4,8 +4,10 @@ public class BinarySearch {
     public boolean binarySearch(int x, int[] sortedNumbers) {
         int start = 0;
         int end = sortedNumbers.length - 1;
-
+        System.out.println(end);
+        int count = 0;
         while(start <= end) {
+            System.out.println(++count);
             int mid = (start + end) / 2;
             if(sortedNumbers[mid] == x) {
                 return true;
