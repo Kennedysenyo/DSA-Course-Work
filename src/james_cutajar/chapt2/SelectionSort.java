@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class SelectionSort {
 
     public int[] sort(int[] array ) {
-        int smallestIndex = 0;
+        int smallestIndex;
         for(int i = 0; i < array.length; i ++) {
             smallestIndex = i;
             for (int j = i; j < array.length; j ++) {
