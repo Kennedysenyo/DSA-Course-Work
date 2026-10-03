@@ -1,20 +1,20 @@
 package telusko;
 
 public class Node {
-    private int val;
+    private int data;
     private Node next;
 
-    public Node(int val) {
-        this.val = val;
+    public Node(int data) {
+        this.data = data;
         next = null;
     }
 
-    public void setVal(int newVal) {
-        val = newVal;
+    public void setVal(int newData) {
+        data = newData;
     }
 
     public int getVal() {
-        return this.val;
+        return this.data;
     }
     public Node getNext() {
         return this.next;
