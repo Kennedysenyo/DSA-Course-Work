@@ -5,10 +5,12 @@ import java.util.Arrays;
 /**
  * Represents a list of int values that can grow and shrink.
  */
-public class DynamicArrays {
+public class DynamicArrays2 {
 
     private int [] items = new int[8];
     private int itemCt =0;
+
+
 
     /**
      * Return the item at a given index int the array.
@@ -66,5 +68,16 @@ public class DynamicArrays {
         }
         itemCt--;
         return value;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for(int i = 0; i <itemCt; i ++) {
+            sb.append(items[i] + i == itemCt - 1 ? "" : ",");
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
