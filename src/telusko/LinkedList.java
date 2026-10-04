@@ -9,6 +9,7 @@ public class LinkedList {
     public LinkedList() {
         head = null;
         current = null;
+        size = 0;
     }
 
     public void add(int value) {
@@ -16,6 +17,7 @@ public class LinkedList {
         if(head == null && current == null) {
             head = node;
             current = node;
+            size++;
             return ;
         }
         current.setNext(node);
@@ -49,6 +51,7 @@ public class LinkedList {
         }
         c.setNext(node);
         node.setNext(temp);
+        size++;
     }
 
     public int removeFirst() {
@@ -58,7 +61,7 @@ public class LinkedList {
         Node n = head;
         head = n.getNext();
         n.setNext(null);
-        size++;
+        size--;
         return n.getVal();
     }
 
@@ -77,15 +80,43 @@ public class LinkedList {
     }
 
     public int remove(int index) {
-        if(index < 0 || index > size - 1) {
+        if(index < 0 || index > size ) {
             throw new IndexOutOfBoundsException("Illegal index" + index);
         }
         int count = 0;
-        while(count < index){
-
+        Node c = head;
+        while(count < index - 1){
+            c = c.getNext();
             count++;
-
         }
+        Node node = c.getNext();
+        if((c.getNext().getNext()) != null) {
+            c.setNext(c.getNext().getNext());
+        }else {
+            c.setNext(null);
+        }
+        node.setNext(null);
+        size--;
+        return node.getVal();
+    }
+
+    public int peekLast () {
+        return current.getVal();
+    }
+
+    public int get(int index) {
+        if(index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Illegal index " + index);
+        }
+        Node c = head;
+        for(int i =0; i <= index; i++){
+            c = c.getNext();
+        }
+        return c.getVal();
+    }
+
+    public int getSize() {
+        return size;
     }
 
   @Override
@@ -105,7 +136,6 @@ public class LinkedList {
             bs.append(", ");
         }
         bs.append("]");
-
         return bs.toString();
     }
 }
